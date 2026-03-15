@@ -1,0 +1,129 @@
+/* البطاقة الأساسية (لجميع البطاقات) */
+.summary-card {
+  background: white;
+  border-radius: 28px;
+  padding: 7px 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid #edf2f7;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* شريط علوي ذهبي للبطاقات العادية */
+.summary-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #FFD700;
+  border-radius: 28px 28px 0 0;
+}
+
+/* تأثير hover للبطاقات العادية */
+.summary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(255, 215, 0, 0.1);
+  border-color: #FFD700;
+}
+
+/* أيقونة البطاقة العادية */
+.card-icon {
+  font-size: 30px;
+  color: #a0aec0;
+  margin-bottom: 12px;
+  transition: all 0.3s;
+}
+
+.summary-card:hover .card-icon {
+  color: #FFD700;
+  transform: scale(1.05);
+}
+
+/* عنوان البطاقة العادية */
+.summary-card h3 {
+  margin: 0 0 8px 0;
+  color: #718096;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* القيمة الرقمية للبطاقة العادية */
+.summary-card .value {
+  font-size: 34px;
+  font-weight: 800;
+  color: #2d3748;
+  margin: 5px 0 5px;
+  line-height: 1.2;
+}
+
+/* النص الفرعي (إن وجد) */
+.summary-card .subtitle {
+  color: #a0aec0;
+  font-size: 13px;
+  border-top: 1px dashed #e2e8f0;
+  padding-top: 10px;
+  margin-top: 8px;
+}
+
+/* ===== البطاقات المميزة (المبلغ الإجمالي والصافي الحالي) ===== */
+.summary-card.highlight {
+  background: #2b2b2b; /* نفس درجة لون السايد بار (رمادي غامق) */
+  border: 1px solid #FFD700;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+}
+
+/* شريط علوي ذهبي للبطاقة المميزة */
+.summary-card.highlight::before {
+  background: #FFD700;
+  height: 4px;
+}
+
+/* أيقونة البطاقة المميزة (ذهبية) */
+.summary-card.highlight .card-icon {
+  color: #FFD700;
+  font-size: 32px;
+  transition: all 0.3s ease;
+}
+
+/* عنوان البطاقة المميزة (أبيض) */
+.summary-card.highlight h3 {
+  color: #ffffff;
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+/* القيمة الرقمية للبطاقة المميزة (بيضاء) */
+.summary-card.highlight .value {
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 900;
+}
+
+/* تأثير hover للبطاقة المميزة – تبادل الألوان بين الأبيض والذهبي */
+.summary-card.highlight:hover {
+  background: #333333; /* درجة أفتح قليلاً من الرمادي */
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 0 20px 40px rgba(255, 215, 0, 0.25);
+  border-color: #FFD700;
+}
+
+.summary-card.highlight:hover .card-icon {
+  color: #ffffff; /* الأيقونة تتحول للأبيض */
+  transform: scale(1.1);
+}
+
+.summary-card.highlight:hover h3 {
+  color: #FFD700; /* العنوان يتحول للذهبي */
+}
+
+.summary-card.highlight:hover .value {
+  color: #FFD700; /* القيمة تتحول للذهبي */
+}

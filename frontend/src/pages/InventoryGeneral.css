@@ -1,0 +1,85 @@
+.inventory-general {
+  padding: 10px;
+}
+
+.inventory-general h2 {
+  font-size: 20px;
+  color: #2d3748;
+  margin-bottom: 20px;
+  font-weight: 600;
+  padding-right: 10px;
+}
+
+/* شريط الفلاتر */
+.filters-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  background: #f8fafc;
+  border-radius: 50px;
+  padding: 8px 16px;
+  margin-bottom: 25px;
+  border: 1px solid #e2e8f0;
+}
+
+.filters-toolbar .search-bar-container {
+  flex: 2;
+  min-width: 250px;
+  margin-bottom: 0;
+}
+
+.filter-select {
+  width: 150px;
+  padding: 10px 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 50px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+}
+
+.btn-clear-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid #cbd5e0;
+  border-radius: 50%;
+  color: #4a5568;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-clear-filters:hover {
+  background: #edf2f7;
+  border-color: #a0aec0;
+}
+
+/* شبكة البطاقات بالشكل القديم */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.no-items {
+  text-align: center;
+  color: #a0aec0;
+  padding: 40px;
+  background: #f8fafc;
+  border-radius: 16px;
+  font-style: italic;
+  grid-column: 1 / -1;
+}
+
+/* شريط التحميل */
+.loading {
+  text-align: center;
+  padding: 50px;
+  color: #718096;
+  font-size: 18px;
+}

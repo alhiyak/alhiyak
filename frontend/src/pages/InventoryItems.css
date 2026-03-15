@@ -1,0 +1,492 @@
+.inventory-items {
+  background: white;
+  border-radius: 28px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  margin: 20px;
+  direction: rtl;
+}
+
+.inventory-items .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.inventory-items .header h1 {
+  font-size: 26px;
+  color: #2d3748;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  padding-right: 15px;
+}
+
+.inventory-items .header h1::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 5px;
+  bottom: 5px;
+  width: 5px;
+  background: #FFD700;
+  border-radius: 5px;
+}
+
+.inventory-items .header h1 svg {
+  color: #FFD700;
+  font-size: 28px;
+}
+
+.btn-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: #2b2b2b;
+  color: #FFD700;
+  border: 1px solid #FFD700;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-add:hover {
+  background: #FFD700;
+  color: #2b2b2b;
+  border-color: #FFD700;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 20px;
+  background: #f8fafc;
+  padding: 5px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.table th {
+  padding: 15px 12px;
+  background: #edf2f7;
+  color: #2d3748;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  border: none;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 14px 12px;
+  background: white;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  border-radius: 16px;
+  transition: all 0.2s ease;
+  text-align: center;
+  color: #4a5568;
+  vertical-align: middle;
+}
+
+.table tr:hover td {
+  background: #fef9e7;
+}
+
+.item-code {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 14px;
+}
+
+.item-thumbnail {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  object-fit: contain;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 4px;
+  transition: transform 0.2s;
+}
+
+.item-thumbnail:hover {
+  transform: scale(1.1);
+}
+
+.no-image {
+  font-size: 36px;
+  color: #cbd5e0;
+  background: #f1f5f9;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin: 0 auto;
+}
+
+.low-stock {
+  color: #e74c3c;
+  font-weight: 700;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+  color: #718096;
+  font-size: 18px;
+  margin: 0 4px;
+  border: 1px solid transparent;
+}
+
+.btn-icon:hover {
+  transform: translateY(-2px);
+}
+
+.btn-edit:hover {
+  background: rgba(255, 215, 0, 0.1);
+  color: #FFD700;
+  border-color: #FFD700;
+}
+
+.btn-delete:hover {
+  background: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+  border-color: #e74c3c;
+}
+
+.btn-damage {
+  color: #f39c12;
+}
+.btn-damage:hover {
+  background: rgba(243, 156, 18, 0.1);
+  color: #f39c12;
+  border-color: #f39c12;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 40px !important;
+  color: #a0aec0;
+  font-size: 16px;
+}
+
+/* ===== صفوف المواد غير المتوفرة (الكمية صفر) ===== */
+tr.out-of-stock-row td {
+  filter: grayscale(100%);
+  opacity: 0.6;
+}
+
+tr.out-of-stock-row:hover td {
+  filter: grayscale(80%);
+  opacity: 0.8;
+  background: #fef9e7;
+}
+
+/* أنماط المودال كما هي (لا تغيير) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  direction: rtl;
+}
+
+.modal-card {
+  background: white;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 32px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
+  margin: 20px;
+}
+
+.modal-header {
+  background: linear-gradient(145deg, #2b2b2b, #1f1f1f);
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #FFD700;
+  flex-shrink: 0;
+  border-radius: 32px 32px 0 0;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #FFD700;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  color: #FFD700;
+  font-size: 28px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  background: rgba(255, 215, 0, 0.1);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 25px;
+  background: #fafafa;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-footer {
+  padding: 20px 25px;
+  background: #f0f2f5;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  border-top: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+/* ===== أنماط مودال التالف ===== */
+.damage-item-details {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #f7fafc;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  flex-direction: row;
+}
+
+.damage-item-image {
+  width: 140px !important;
+  height: 140px !important;
+  border-radius: 24px;
+  object-fit: contain;
+  border: 2px solid #FFD700;
+  background: white;
+  flex-shrink: 0;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.damage-item-image-placeholder {
+  width: 140px !important;
+  height: 140px !important;
+  border-radius: 24px;
+  background: #edf2f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  color: #cbd5e0;
+  border: 2px dashed #cbd5e0;
+  flex-shrink: 0;
+}
+
+.damage-item-info {
+  flex: 1;
+  text-align: right;
+}
+
+.damage-item-info h4 {
+  margin: 0 0 8px 0;
+  font-size: 22px;
+  color: #2d3748;
+  font-weight: 700;
+}
+
+.damage-item-info p {
+  margin: 4px 0;
+  color: #4a5568;
+  font-size: 16px;
+}
+
+.damage-item-info strong {
+  color: #2b2b2b;
+  font-size: 20px;
+  background: #fef9e7;
+  padding: 2px 12px;
+  border-radius: 30px;
+  border: 1px solid #FFD700;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 18px;
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  font-size: 15px;
+  transition: all 0.3s;
+  font-family: inherit;
+  background: white;
+  text-align: right;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #FFD700;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.15);
+}
+
+.form-group small {
+  display: block;
+  color: #718096;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.required {
+  color: #e74c3c;
+  margin-right: 4px;
+}
+
+.btn-save {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: #2b2b2b;
+  color: white;
+  border: 1px solid #FFD700;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.btn-save:hover {
+  color: #FFD700;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.3);
+}
+
+.btn-cancel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: transparent;
+  color: #718096;
+  border: 1px solid #cbd5e0;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.btn-cancel:hover {
+  background: #f7fafc;
+  color: #2d3748;
+  border-color: #a0aec0;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-row .half {
+  flex: 1;
+}
+
+.image-preview {
+  margin-top: 10px;
+  border: 1px dashed #cbd5e0;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 150px;
+  border-radius: 8px;
+}
+/* تفتيح المواد منتهية الكمية */
+tr.out-of-stock-row td {
+  opacity: 0.5 !important;
+  filter: grayscale(100%) !important;
+  transition: all 0.3s ease;
+}
+
+tr.out-of-stock-row:hover td {
+  opacity: 0.8 !important;
+  filter: grayscale(80%) !important;
+}
+/* تفتيح المواد منتهية الكمية في جدول إدارة المواد */
+tr.out-of-stock-row td {
+  opacity: 0.5;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+tr.out-of-stock-row:hover td {
+  opacity: 0.8;
+  filter: grayscale(80%);
+  background: #fef9e7;
+}

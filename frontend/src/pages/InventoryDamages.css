@@ -1,0 +1,67 @@
+.inventory-damages {
+  padding: 10px;
+}
+
+.inventory-damages h2 {
+  font-size: 20px;
+  color: #2d3748;
+  margin-bottom: 20px;
+  font-weight: 600;
+  padding-right: 10px;
+}
+
+.damage-code {
+  font-weight: 600;
+  color: #2d3748;
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 14px;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 20px;
+  background: #f8fafc;
+  padding: 5px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.table th {
+  padding: 15px 12px;
+  background: #edf2f7;
+  color: #2d3748;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  border: none;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 14px 12px;
+  background: white;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  border-radius: 16px;
+  transition: all 0.2s ease;
+  text-align: center;
+  color: #4a5568;
+  vertical-align: middle;
+}
+
+.table tr:hover td {
+  background: #fef9e7;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 40px !important;
+  color: #a0aec0;
+  font-size: 16px;
+}

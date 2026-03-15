@@ -1,0 +1,203 @@
+.print-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  direction: rtl;
+}
+
+.print-modal-content {
+  background: white;
+  width: 90%;
+  max-width: 900px;
+  border-radius: 32px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+}
+
+.print-modal-header {
+  background: linear-gradient(145deg, #2b2b2b, #1f1f1f);
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #FFD700;
+}
+
+.print-modal-header h3 {
+  margin: 0;
+  color: #FFD700;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.print-modal-close {
+  background: transparent;
+  border: none;
+  color: #FFD700;
+  font-size: 28px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.print-modal-close:hover {
+  background: rgba(255, 215, 0, 0.1);
+  transform: rotate(90deg);
+}
+
+.print-modal-body {
+  padding: 25px;
+  background: #fafafa;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.print-area {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.print-header {
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 2px dashed #e2e8f0;
+  padding-bottom: 20px;
+}
+
+.print-logo {
+  max-width: 100px;
+  margin-bottom: 10px;
+}
+
+.print-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 5px;
+}
+
+.print-date {
+  color: #718096;
+  font-size: 14px;
+}
+
+.print-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.print-table th {
+  background: #edf2f7;
+  padding: 12px;
+  text-align: center;
+  font-weight: 700;
+  color: #2d3748;
+  border: 1px solid #e2e8f0;
+}
+
+.print-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  color: #4a5568;
+}
+
+.print-total {
+  text-align: left;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 2px solid #e2e8f0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.print-total span {
+  font-weight: 600;
+  color: #718096;
+}
+
+.print-signature {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px dashed #e2e8f0;
+}
+
+.signature-line,
+.stamp-line {
+  color: #4a5568;
+  font-size: 14px;
+}
+
+.print-modal-footer {
+  padding: 20px 25px;
+  background: #f0f2f5;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.btn-print {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: #2b2b2b;
+  color: white;
+  border: 1px solid #FFD700;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.btn-print:hover {
+  color: #FFD700;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.3);
+}
+
+.btn-cancel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: transparent;
+  color: #718096;
+  border: 1px solid #cbd5e0;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.btn-cancel:hover {
+  background: #f7fafc;
+  color: #2d3748;
+  border-color: #a0aec0;
+}

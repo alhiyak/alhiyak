@@ -1,0 +1,85 @@
+.occasion-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.occasion-filters h3 {
+  font-size: 18px;
+  color: #2d3748;
+  margin: 0 0 5px 0;
+  font-weight: 700;
+  padding-right: 10px;
+  border-right: 3px solid #FFD700;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filter-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.filter-group label svg {
+  color: #FFD700;
+  font-size: 16px;
+}
+
+.filter-group input,
+.filter-group select {
+  width: 100%;
+  padding: 10px 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 30px;
+  font-size: 14px;
+  background: white;
+  transition: all 0.2s;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+  outline: none;
+  border-color: #FFD700;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+}
+
+.filter-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid #cbd5e0;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  background: #edf2f7;
+  border-color: #a0aec0;
+}
+
+.filter-btn svg {
+  font-size: 16px;
+  color: #FFD700;
+}

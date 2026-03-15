@@ -1,0 +1,268 @@
+/* ===== التصميم العام ===== */
+.layout {
+  display: flex;
+  direction: rtl;
+  min-height: 100vh;
+  background: #0c1119;
+  font-family: 'Cairo', sans-serif;
+}
+
+/* ===== السايد بار ===== */
+.sidebar {
+  width: 260px;
+  background: #2b2b2b;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 1000;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+/* طبقة توهج خلفية ناعمة */
+.sidebar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
+/* إزالة الخط الذهبي العمودي */
+.sidebar::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* ===== منطقة الشعار ===== */
+.sidebar .logo {
+  padding: 25px 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 20px 15px;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.logo-link {
+  display: block;
+  text-decoration: none;
+  outline: none;
+}
+
+.logo-container {
+  width: 95px;
+  height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+}
+
+.logo-image {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  transition: all 0.5s ease;
+  animation: subtleBreathing 5s infinite alternate;
+}
+
+@keyframes subtleBreathing {
+  0% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3)); }
+  100% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7)); }
+}
+
+.logo-image:hover {
+  animation: none;
+  filter: drop-shadow(0 0 30px #FFD700);
+  transform: scale(1.05);
+}
+
+/* ===== روابط القائمة الجانبية ===== */
+.sidebar nav {
+  flex: 1;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar nav a {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 30px;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.sidebar nav a svg {
+  margin-left: 12px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.25s ease;
+}
+
+.sidebar nav a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 215, 0, 0.05);
+  border-radius: 30px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.sidebar nav a:hover::before {
+  opacity: 1;
+}
+
+.sidebar nav a:hover {
+  color: #FFD700;
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.sidebar nav a:hover svg {
+  color: #FFD700;
+  transform: translateX(-3px);
+}
+
+.sidebar nav a.active {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 0.4);
+  color: #FFD700;
+  font-weight: 600;
+}
+
+.sidebar nav a.active svg {
+  color: #FFD700;
+}
+
+/* ===== المحتوى الرئيسي ===== */
+.main-content {
+  flex: 1;
+  margin-right: 260px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #f5f8ff 0%, #e9ecf5 100%);
+  min-height: 100vh;
+  width: calc(100% - 260px);
+  position: relative;
+}
+
+/* إزالة أي خطوط من المحتوى الرئيسي */
+.main-content::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* ===== الهيدر ===== */
+.header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.date-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.gregorian-date {
+  color: #2d3748;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.hijri-date {
+  color: #8a6d3b;
+  font-size: 13px;
+  font-weight: 500;
+  border-top: 1px dashed rgba(255, 215, 0, 0.3);
+  padding-top: 4px;
+  margin-top: 2px;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-name {
+  color: #2d3748;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.logout-btn {
+  background: none;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  padding: 8px 22px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.logout-btn:hover {
+  background: #e74c3c;
+  color: white;
+  border-color: #e74c3c;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+/* ===== المحتوى الداخلي ===== */
+.content {
+  padding: 30px;
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== تعطيل شريط التمرير المخصص ===== */
+/* تم إلغاء تخصيص شريط التمرير لمنع ظهور خط أصفر */
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* يمكنك إزالة الأسطر التالية أو تركها معلقة */
+/* 
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFD700;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFA500;
+}
+*/
